@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".utils.smartwatch.WatchInfoFragment">
+    <include
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clWatchInfo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/watchinfo_photo_height"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        >
+        <ImageView
+            android:id="@+id/ivWatch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/watch4"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintWidth_percent="0.375"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_clWatchInfo_ypos1"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_percent="0.133"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_clWatchInfo_xpos1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_begin="20dp"/>
+
+        <TextView
+            android:id="@+id/tvWatchName"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:text=""
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintTop_toBottomOf="@+id/gl_clWatchInfo_ypos1"
+            app:layout_constraintStart_toStartOf="@+id/gl_clWatchInfo_xpos1"/>
+
+        <TextView
+            android:id="@+id/tvBondState"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text="@string/bonded_device"
+            app:layout_constraintHeight_percent="0.125"
+            app:layout_constraintTop_toBottomOf="@+id/tvWatchName"
+            app:layout_constraintStart_toStartOf="@+id/gl_clWatchInfo_xpos1"/>
+
+        <eho.jotangi.com.utils.smartwatch.BatteryView
+            android:id="@+id/ivBatteryLevel"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintTop_toTopOf="@+id/tvBondState"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBondState"
+            app:layout_constraintStart_toEndOf="@+id/tvBondState"/>
+
+        <TextView
+            android:id="@+id/tvBatteryLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center_vertical"
+            android:text="連接中"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBondState"
+            app:layout_constraintStart_toEndOf="@+id/ivBatteryLevel"
+            app:layout_constraintTop_toTopOf="@+id/tvBondState" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:text="%"
+            app:layout_constraintTop_toTopOf="@+id/tvBondState"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBondState"
+            app:layout_constraintStart_toEndOf="@+id/tvBatteryLevel"/>
+        <TextView
+            android:id="@+id/tvWatchMac"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:text="F2:CA:B6:91:CE:6C"
+            app:layout_constraintHeight_percent="0.125"
+            app:layout_constraintTop_toBottomOf="@+id/tvBondState"
+            app:layout_constraintStart_toStartOf="@+id/gl_clWatchInfo_xpos1"/>
+        <TextView
+            android:id="@+id/tvUnbindWatch"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/round_rectangle_red_gradient"
+            android:textColor="@android:color/white"
+            android:text="@string/unbond_device"
+            app:layout_constraintHeight_percent="0.250"
+            app:layout_constraintTop_toBottomOf="@+id/tvWatchMac"
+            app:layout_constraintStart_toStartOf="@+id/gl_clWatchInfo_xpos1"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_xpos1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_begin="20dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_xpos2"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_begin="40dp"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_xpos3"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintGuide_end="20dp"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintTop_toBottomOf="@+id/clWatchInfo" />
+
+    <TextView
+        android:id="@+id/tvHeartRateFullday"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/watchinfo_item_height"
+        android:gravity="center_vertical"
+        android:text="@string/heartrate_fullday"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@id/gl_xpos2"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeartRateFullday"/>
+
+    <LinearLayout
+        android:id="@+id/tvTimeFormat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos2"
+        app:layout_constraintTop_toBottomOf="@+id/line2">
+
+        <TextView
+            android:id="@+id/tvTimeFormatTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/watchinfo_item_height"
+            android:gravity="center_vertical"
+            android:text="@string/time_format"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTimeFormatContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="12sp" />
+
+        <ImageView
+            style="@style/ivMemberArrowIcon"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintTop_toBottomOf="@+id/tvTimeFormat"/>
+
+    <LinearLayout
+        android:id="@+id/tvNotification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos2"
+        app:layout_constraintTop_toBottomOf="@+id/line3">
+
+        <TextView
+            android:id="@+id/tvNotificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/watchinfo_item_height"
+            android:gravity="center_vertical"
+            android:text="通知權限"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNotificationContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="12sp" />
+
+        <ImageView
+            style="@style/ivMemberArrowIcon"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line6"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotification" />
+
+    <LinearLayout
+        android:id="@+id/tvNotificationSetting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos2"
+        app:layout_constraintTop_toBottomOf="@+id/line6">
+
+        <TextView
+            android:id="@+id/tvNotificationSettingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/watchinfo_item_height"
+            android:gravity="center_vertical"
+            android:text="提醒通知"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNotificationSettingContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:text="通知設定"
+            android:gravity="right"
+            android:textSize="12sp" />
+
+        <ImageView
+            style="@style/ivMemberArrowIcon"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line7"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotificationSetting" />
+
+    <LinearLayout
+        android:id="@+id/tvReboot"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/watchinfo_item_height"
+        android:layout_marginStart="40dp"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotificationSetting" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/watchinfo_item_height"
+            android:gravity="center_vertical"
+            android:text="@string/watch_reboot"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:text="重啟設定"
+            android:gravity="right"
+            android:textSize="12sp" />
+
+        <ImageView
+            style="@style/ivMemberArrowIcon"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintTop_toBottomOf="@+id/tvReboot" />
+
+    <TextView
+        android:id="@+id/tvLanguageSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/watchinfo_item_height"
+        android:layout_marginStart="40dp"
+        android:gravity="center_vertical"
+        android:text="@string/language_setting"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvReboot" />
+
+    <TextView
+        android:id="@+id/textView172"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="繁體中文"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/line4"
+        app:layout_constraintEnd_toStartOf="@+id/gl_xpos3"
+        app:layout_constraintTop_toBottomOf="@+id/line5" />
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/gl_xpos3"
+        app:layout_constraintStart_toStartOf="@+id/gl_xpos1"
+        app:layout_constraintTop_toBottomOf="@+id/tvLanguageSetting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

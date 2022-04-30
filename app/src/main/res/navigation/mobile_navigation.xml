@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="eho.jotangi.com.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_splash"
+            app:destination="@id/nav_splash" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_booking"
+        android:name="eho.jotangi.com.ui.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+
+    <fragment
+        android:id="@+id/nav_mall"
+        android:name="eho.jotangi.com.ui.MallFragment"
+        android:label="fragment_mall"
+        tools:layout="@layout/fragment_mall" />
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="eho.jotangi.com.ui.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+
+    <fragment
+        android:id="@+id/nav_member"
+        android:name="eho.jotangi.com.ui.MemberFragment"
+        android:label="fragment_member"
+        tools:layout="@layout/fragment_member">
+        <action
+            android:id="@+id/action_nav_member_to_nav_watch_scan"
+            app:destination="@id/nav_watch_scan" />
+        <action
+            android:id="@+id/action_nav_member_to_nav_watch_info"
+            app:destination="@id/nav_watch_info" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_splash"
+        android:name="eho.jotangi.com.ui.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" />
+
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="eho.jotangi.com.ui.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+
+    <fragment
+        android:id="@+id/nav_web"
+        android:name="eho.jotangi.com.ui.WebFragment"
+        android:label="fragment_web"
+        tools:layout="@layout/fragment_web" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_nav_web_to_nav_wristband"
+            app:destination="@id/nav_wristband" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="eho.jotangi.com.ui.LoginFragment"
+        android:label="LoginFragment" />
+
+    <fragment
+        android:id="@+id/nav_store"
+        android:name="eho.jotangi.com.ui.StoreFragment"
+        android:label="StoreFragment" />
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="eho.jotangi.com.ui.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" >
+        <action
+            android:id="@+id/action_nav_notification_to_nav_notification_detail"
+            app:destination="@id/nav_notification_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notification_detail"
+        android:name="eho.jotangi.com.ui.notification.NotificationDetailFragment"
+        android:label="fragment_notification_detail"
+        tools:layout="@layout/fragment_notification_detail" >
+        <argument
+            android:name="notification"
+            app:argType="eho.jotangi.com.utils.model.NotificationObj"
+            app:nullable="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_wristband"
+        android:name="eho.jotangi.com.ui.wristband.IndexFragment"
+        android:label="WristBandFragment"
+        tools:layout="@layout/fragment_wristband_index">
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_footstep"
+            app:destination="@+id/nav_footstep" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_sleep"
+            app:destination="@id/nav_sleep" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_heart_rate"
+            app:destination="@id/nav_heart_rate" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_bp"
+            app:destination="@id/nav_bp" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_oxy"
+            app:destination="@id/nav_oxy" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_sport"
+            app:destination="@id/nav_sport" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_walk"
+            app:destination="@id/nav_walk" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_run"
+            app:destination="@id/nav_run" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_bike"
+            app:destination="@id/nav_bike" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_jump"
+            app:destination="@id/nav_jump" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_badminton"
+            app:destination="@id/nav_badminton" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_basketball"
+            app:destination="@id/nav_basketball" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_soccer"
+            app:destination="@id/nav_soccer" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_swim"
+            app:destination="@id/nav_swim" />
+        <action
+            android:id="@+id/action_nav_wristband_to_nav_ecg"
+            app:destination="@id/nav_ecg" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_footstep"
+        android:name="eho.jotangi.com.ui.wristband.footstep.FootStepFragment"
+        android:label="FootStepFragment"
+        tools:layout="@layout/fragment_footstep">
+        <action
+            android:id="@+id/action_nav_footstep_to_nav_footstep_detail"
+            app:destination="@id/nav_footstep_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_footstep_detail"
+        android:name="eho.jotangi.com.ui.wristband.footstep.FootStepDetailFragment"
+        android:label="FootStepDetailFragment"
+        tools:layout="@layout/fragment_footstep_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sleep"
+        android:name="eho.jotangi.com.ui.wristband.sleep.SleepFragment"
+        android:label="SleepFragment"
+        tools:layout="@layout/fragment_sleep">
+
+        <action
+            android:id="@+id/action_nav_sleep_to_nav_sleep_detail"
+            app:destination="@id/nav_sleep_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sleep_detail"
+        android:name="eho.jotangi.com.ui.wristband.sleep.SleepDetailFragment"
+        android:label="SleepDetailFragment"
+        tools:layout="@layout/fragment_sleep_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_heart_rate"
+        android:name="eho.jotangi.com.ui.wristband.heartrate.HeartRateFragment"
+        android:label="HeartRateFragment"
+        tools:layout="@layout/fragment_heart_rate">
+
+        <action
+            android:id="@+id/action_nav_heart_rate_to_nav_heart_rate_detail"
+            app:destination="@id/nav_heart_rate_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_heart_rate_detail"
+        android:name="eho.jotangi.com.ui.wristband.heartrate.HeartRateDetailFragment"
+        android:label="HeartRateDetailFragment"
+        tools:layout="@layout/fragment_heart_rate_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_heart_rate_all_day"
+        android:name="eho.jotangi.com.ui.wristband.heartrate.HeartRateAllDayFragment"
+        android:label="HeartRateAllDayFragment"
+        tools:layout="@layout/fragment_heart_rate_all_day">
+
+        <action
+            android:id="@+id/action_nav_heart_rate_all_day_to_nav_heart_rate_all_day_detail"
+            app:destination="@id/nav_heart_rate_all_day_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_heart_rate_all_day_detail"
+        android:name="eho.jotangi.com.ui.wristband.heartrate.HeartRateAllDayDetailFragment"
+        android:label="HeartRateAllDayDetailFragment"
+        tools:layout="@layout/fragment_heart_rate_all_day_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_bp"
+        android:name="eho.jotangi.com.ui.wristband.bp.BpFragment"
+        android:label="BpDetailFragment"
+        tools:layout="@layout/fragment_bloodpressure">
+        <action
+            android:id="@+id/action_nav_bp_to_nav_bp_detail"
+            app:destination="@id/nav_bp_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_bp_detail"
+        android:name="eho.jotangi.com.ui.wristband.bp.BpDetailFragment"
+        android:label="BpDetailFragment"
+        tools:layout="@layout/fragment_bloodpressure_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_oxy"
+        android:name="eho.jotangi.com.ui.wristband.Oxy.OxyFragment"
+        android:label="OxyFragment"
+        tools:layout="@layout/fragment_oxy">
+        <action
+            android:id="@+id/action_nav_oxy_to_nav_oxy_detail"
+            app:destination="@id/nav_oxy_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ecg"
+        android:name="eho.jotangi.com.ui.wristband.ecg.EcgFragment"
+        android:label="EcgFragment"
+        tools:layout="@layout/fragment_ecg">
+
+        <action
+            android:id="@+id/action_nav_ecg_to_nav_ecg_detail"
+            app:destination="@id/nav_ecg_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ecg_detail"
+        android:name="eho.jotangi.com.ui.wristband.ecg.EcgDetailFragment"
+        android:label="EcgDetailFragment"
+        tools:layout="@layout/fragment_ecg_detail">
+
+<!--        <argument-->
+<!--            android:name="data"-->
+<!--            app:argType="eho.jotangi.com.ui.wristband.ecg.LineDataModel" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_oxy_detail"
+        android:name="eho.jotangi.com.ui.wristband.Oxy.OxyDetailFragment"
+        android:label="OxyDetailFragment"
+        tools:layout="@layout/fragment_oxy_detail">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_sport"
+        android:name="eho.jotangi.com.ui.wristband.sport.SportDetailFragment"
+        android:label="SportDetailFragment"
+        tools:layout="@layout/fragment_sport">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_walk"
+        android:name="eho.jotangi.com.ui.wristband.sport.WalkFragment"
+        android:label="WalkFragment"
+        tools:layout="@layout/fragment_walk">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_run"
+        android:name="eho.jotangi.com.ui.wristband.sport.RunFragment"
+        android:label="RunFragment"
+        tools:layout="@layout/fragment_run">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_bike"
+        android:name="eho.jotangi.com.ui.wristband.sport.BikeFragment"
+        android:label="BikeFragment"
+        tools:layout="@layout/fragment_bike">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_jump"
+        android:name="eho.jotangi.com.ui.wristband.sport.JumpFragment"
+        android:label="JumpFragment"
+        tools:layout="@layout/fragment_jump">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_badminton"
+        android:name="eho.jotangi.com.ui.wristband.sport.BadmintonFragment"
+        android:label="BadmintonFragment"
+        tools:layout="@layout/fragment_badminton">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_basketball"
+        android:name="eho.jotangi.com.ui.wristband.sport.BasketballFragment"
+        android:label="BasketballFragment"
+        tools:layout="@layout/fragment_basketball">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_soccer"
+        android:name="eho.jotangi.com.ui.wristband.sport.SoccerFragment"
+        android:label="SoccerFragment"
+        tools:layout="@layout/fragment_soccer">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_swim"
+        android:name="eho.jotangi.com.ui.wristband.sport.SwimFragment"
+        android:label="SwimFragment"
+        tools:layout="@layout/fragment_swim">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_watch_scan"
+        android:name="eho.jotangi.com.utils.smartwatch.WatchScanFragment"
+        tools:layout="@layout/fragment_watch_scan"
+        android:label="WatchScanFragment" >
+        <action
+            android:id="@+id/action_nav_watch_scan_to_nav_watch_info"
+            app:destination="@id/nav_watch_info"
+            app:popUpTo="@id/nav_watch_scan"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_watch_info"
+        android:name="eho.jotangi.com.utils.smartwatch.WatchInfoFragment"
+        tools:layout="@layout/fragment_watch_info"
+        android:label="WatchInfoFragment" >
+        <action
+            android:id="@+id/action_nav_watch_info_to_nav_watch_scan"
+            app:destination="@id/nav_watch_scan"
+            app:popUpTo="@id/nav_watch_info"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_nav_watch_info_to_nav_notification_setting"
+            app:destination="@+id/nav_notification_setting"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_notification_setting"
+        android:name="eho.jotangi.com.utils.smartwatch.NotificationSettingFragment"
+        tools:layout="@layout/fragment_notification_setting"
+        android:label="NotificationSetting">
+
+    </fragment>
+
+</navigation>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="cvHomeTab">
+        <item name="android:layout_width">168dp</item>
+        <item name="android:layout_height">155dp</item>
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+    <style name="ivTabNext">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:background">?android:attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="vHomeTabIconBg">
+        <item name="android:layout_width">62dp</item>
+        <item name="android:layout_height">62dp</item>
+        <item name="android:background">@drawable/shape_rounded_31_white_25</item>
+        <item name="android:layout_marginTop">-6dp</item>
+        <item name="android:layout_marginEnd">-6dp</item>
+    </style>
+
+    <style name="ivHomeTabIcon">
+        <item name="android:layout_width">36dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+
+    <style name="tvHomeTabTitle" parent="tvWrapContentWhite">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="tvHomeTabContent" parent="tvWrapContentWhite">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:lines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="tvHomeTabNumber" parent="tvWrapContentWhite">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="tvHomeTabMore" parent="tvWrapContentWhite">
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+    </style>
+
+    <style name="ivHomeTabIconArrow">
+        <item name="android:layout_width">12dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:src">@drawable/ic_right_arrow_12</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+    </style>
+
+    <style name="ivHomeTabIcon16">
+        <item name="android:layout_width">16dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="clHomeTabContent">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:layout_marginEnd">12dp</item>
+    </style>
+
+    <style name="tvHomeTabNone">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="btnHomeTabNone">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:text">@string/booking_now</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_rounded_20_white</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:layout_marginStart">4dp</item>
+        <item name="android:layout_marginEnd">4dp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MemberFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:src="@drawable/shape_rounded_white_top"
+                android:background="@color/c_faf5f5_100"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/text_10"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sivPhoto"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/c_4b525b_100"
+                android:layout_marginTop="20dp"
+                android:elevation="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_img_user"
+                app:layout_constraintWidth_percent=".3"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:shapeAppearanceOverlay="@style/siv_circle"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/c_c62933_100"
+                android:src="@drawable/ic_camera"
+                android:scaleType="centerInside"
+                android:elevation="20dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="@id/sivPhoto"
+                app:layout_constraintBottom_toBottomOf="@id/sivPhoto"
+                app:shapeAppearanceOverlay="@style/siv_circle"/>
+
+            <ImageView
+                android:id="@+id/ivTabReservationRecord"
+                android:src="@drawable/ic_reservation"
+                android:layout_marginTop="40dp"
+                style="@style/ivMemberTabIcon"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toStartOf="@id/ivTabMeasurementRecord"
+                app:layout_constraintTop_toBottomOf="@id/sivPhoto"/>
+
+            <ImageView
+                android:id="@+id/ivTabMeasurementRecord"
+                android:src="@drawable/ic_insurance"
+                style="@style/ivMemberTabIcon"
+                app:layout_constraintStart_toEndOf="@id/ivTabReservationRecord"
+                app:layout_constraintEnd_toStartOf="@id/ivTabOrder"
+                app:layout_constraintTop_toTopOf="@id/ivTabReservationRecord" />
+
+            <ImageView
+                android:id="@+id/ivTabOrder"
+                android:src="@drawable/ic_online_order"
+                style="@style/ivMemberTabIcon"
+                app:layout_constraintStart_toEndOf="@id/ivTabMeasurementRecord"
+                app:layout_constraintEnd_toStartOf="@id/ivTabFavorite"
+                app:layout_constraintTop_toTopOf="@id/ivTabReservationRecord" />
+
+            <ImageView
+                android:id="@+id/ivTabFavorite"
+                android:src="@drawable/ic_fav"
+                style="@style/ivMemberTabIcon"
+                app:layout_constraintStart_toEndOf="@id/ivTabOrder"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintTop_toTopOf="@id/ivTabReservationRecord" />
+
+            <TextView
+                android:id="@+id/tvTabReservationRecord"
+                android:text="@string/reservation_record"
+                style="@style/tvMemberTabIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivTabReservationRecord"
+                app:layout_constraintStart_toStartOf="@id/ivTabReservationRecord"
+                app:layout_constraintEnd_toEndOf="@id/ivTabReservationRecord"/>
+
+            <TextView
+                android:text="@string/measurement_record"
+                style="@style/tvMemberTabIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivTabReservationRecord"
+                app:layout_constraintStart_toStartOf="@id/ivTabMeasurementRecord"
+                app:layout_constraintEnd_toEndOf="@id/ivTabMeasurementRecord"/>
+
+            <TextView
+                android:text="@string/my_order"
+                style="@style/tvMemberTabIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivTabReservationRecord"
+                app:layout_constraintStart_toStartOf="@id/ivTabOrder"
+                app:layout_constraintEnd_toEndOf="@id/ivTabOrder"/>
+
+            <TextView
+                android:text="@string/my_favorite"
+                style="@style/tvMemberTabIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivTabReservationRecord"
+                app:layout_constraintStart_toStartOf="@id/ivTabFavorite"
+                app:layout_constraintEnd_toEndOf="@id/ivTabFavorite"/>
+
+            <View
+                android:id="@+id/vLine"
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintTop_toBottomOf="@id/tvTabReservationRecord"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <TextView
+                android:id="@+id/tvMemberInfo"
+                style="@style/tvMemberList"
+                android:text="@string/member_info"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@id/vLine" />
+
+            <TextView
+                android:id="@+id/tvPassword"
+                style="@style/tvMemberList"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:text="@string/password_chang"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@+id/tvMemberInfo" />
+
+            <ImageView
+                android:id="@+id/imageView52"
+                style="@style/ivMemberArrowIcon"
+                android:layout_width="16dp"
+                android:layout_height="44dp"
+                app:layout_constraintEnd_toEndOf="@id/tvPassword"
+                app:layout_constraintTop_toTopOf="@+id/tvPassword" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvMemberInfo"
+                app:layout_constraintEnd_toEndOf="@id/tvMemberInfo" />
+
+            <View
+                android:id="@+id/vLin2"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvMemberInfo"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart" />
+
+            <TextView
+                android:id="@+id/tvMyTicket"
+                style="@style/tvMemberList"
+                android:text="@string/my_ticket"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@+id/tvPassword" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvMyTicket"
+                app:layout_constraintEnd_toEndOf="@id/tvMyTicket" />
+
+            <View
+                android:id="@+id/view18"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyTicket"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart" />
+
+            <TextView
+                android:id="@+id/tvMyFv"
+                style="@style/tvMemberList"
+                android:text="我的推薦"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@id/tvMyTicket" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvMyFv"
+                app:layout_constraintEnd_toEndOf="@id/tvMyFv" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvMyFv"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <TextView
+                android:id="@+id/tvCoupon"
+                style="@style/tvMemberList"
+                android:text="@string/coupon"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@id/tvMyFv" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvCoupon"
+                app:layout_constraintTop_toTopOf="@id/tvCoupon" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvCoupon"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <TextView
+                android:id="@+id/tvRewardRecord"
+                android:text="@string/reward_record"
+                style="@style/tvMemberList"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintTop_toBottomOf="@id/tvCoupon" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvRewardRecord"
+                app:layout_constraintEnd_toEndOf="@id/tvRewardRecord" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvRewardRecord"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <TextView
+                android:id="@+id/tvWatchSetting"
+                android:text="@string/watchsetting"
+                style="@style/tvMemberList"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintTop_toBottomOf="@id/tvRewardRecord" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvWatchSetting"
+                app:layout_constraintEnd_toEndOf="@id/tvWatchSetting" />
+
+            <View
+                android:id="@+id/view20"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvWatchSetting"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart" />
+
+            <TextView
+                android:id="@+id/tvTermsPolicy"
+                android:text="@string/terms_policy"
+                style="@style/tvMemberList"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintTop_toBottomOf="@id/tvWatchSetting" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvTermsPolicy"
+                app:layout_constraintEnd_toEndOf="@id/tvTermsPolicy" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvTermsPolicy"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <TextView
+                android:id="@+id/tvFaq"
+                style="@style/tvMemberList"
+                android:text="@string/frequently_asked_questions"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@id/tvTermsPolicy" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvFaq"
+                app:layout_constraintEnd_toEndOf="@id/tvFaq" />
+
+            <View
+                android:id="@+id/view19"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvFaq"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart" />
+
+            <TextView
+                android:id="@+id/tvLogout"
+                style="@style/tvMemberList"
+                android:text="@string/logout"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintTop_toBottomOf="@id/tvFaq" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                app:layout_constraintTop_toTopOf="@id/tvLogout"
+                app:layout_constraintEnd_toEndOf="@id/tvLogout" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvLogout"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <ImageView
+                style="@style/ivMemberArrowIcon"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvCoupon"
+                app:layout_constraintTop_toTopOf="@id/tvCoupon" />
+
+            <View
+                android:layout_marginTop="20dp"
+                style="@style/vMemberLine0"
+                app:layout_constraintBottom_toBottomOf="@id/tvCoupon"
+                app:layout_constraintStart_toStartOf="@id/guidelineVerticalStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineVerticalEnd" />
+
+            <View
+                android:id="@+id/view17"
+                style="@style/vMemberLine0"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPassword"
+                app:layout_constraintEnd_toEndOf="@id/tvPassword"
+                app:layout_constraintStart_toStartOf="@id/tvPassword" />
+
+            <TextView
+                android:id="@+id/tvVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/c_aaaaaa_100"
+                android:layout_margin="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLogout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="1.0" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVerticalStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVerticalEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

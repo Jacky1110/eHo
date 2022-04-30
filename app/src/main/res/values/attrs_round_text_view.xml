@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="RoundTextView">
+        <attr name="roundtext" format="string" />
+        <attr name="roundtextsize" format="dimension" />
+        <attr name="roundtextcolor" format="color" />
+        <attr name="roundtextbgcolor" format="color" />
+    </declare-styleable>
+</resources>

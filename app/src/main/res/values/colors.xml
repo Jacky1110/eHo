@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="c_c62933_100">#c62933</color>
+    <color name="c_b21b25_100">#b21b25</color>
+    <color name="c_eeeeee_100">#eeeeee</color>
+    <color name="c_aaaaaa_100">#aaaaaa</color>
+    <color name="c_86888e_100">#86888e</color>
+    <color name="c_4b525b_100">#4b525b</color>
+    <color name="c_171717_100">#171717</color>
+    <color name="c_faf5f5_100">#faf5f5</color>
+
+    <color name="c_21b7ff_100">#21b7ff</color>
+    <color name="c_2ac3ff_100">#2ac3ff</color>
+    <color name="c_86d238_100">#86d238</color>
+    <color name="c_96da45_100">#96da45</color>
+    <color name="c_ffb800_100">#ffb800</color>
+    <color name="light_blue_400">#FF29B6F6</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="gray_400">#FFBDBDBD</color>
+    <color name="gray_600">#FF757575</color>
+    <color name="gray_mask">#80001010</color>
+    <color name="normal_button_outline_color">#b2e6e6</color>
+
+    <color name="c_4998F2">#4998F2</color>
+    <color name="c_1467C5">#1467C5</color>
+    <color name="c_A0ADAF">#A0ADAF</color>
+    <color name="c_648087">#648087</color>
+    <color name="c_2CE6E9">#2CE6E9</color>
+    <color name="c_0DAFB8">#0DAFB8</color>
+    <color name="c_F58381">#F58381</color>
+    <color name="c_FE3534">#FE3534</color>
+    <color name="c_EFC935">#EFC935</color>
+    <color name="c_FC9B1D">#FC9B1D</color>
+
+</resources>

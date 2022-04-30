@@ -1,0 +1,28 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="toolbar_height">48dp</dimen>
+
+    <dimen name="pageMargin">8dp</dimen>
+    <dimen name="pagerOffset">8dp</dimen>
+    <dimen name="pageMarginAndOffset">16dp</dimen>
+
+    <dimen name="item_watch_scan_height">120dp</dimen>
+    <dimen name="item_watch_scan_arrow_height">30dp</dimen>
+    <dimen name="item_watch_scan_arrow_width">30dp</dimen>
+    <dimen name="item_watch_scan_name_textsize">24sp</dimen>
+    <dimen name="item_watch_scan_mac_textsize">18sp</dimen>
+
+    <dimen name="watchinfo_photo_height">150dp</dimen>
+    <dimen name="watchinfo_item_height">60dp</dimen>
+
+    <dimen name="normal_button_height">60dp</dimen>
+    <dimen name="normal_one_button_dimension_ratio">7.5</dimen>
+    <dimen name="normal_two_button_dimension_ratio">3.5</dimen>
+    <dimen name="normal_button_dimension_ratio_2_1">2</dimen>
+    <dimen name="normal_button_horizontal_margin">10dp</dimen>
+    <dimen name="normal_oval_button_radius">30dp</dimen>
+
+</resources>
