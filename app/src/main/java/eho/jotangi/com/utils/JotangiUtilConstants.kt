@@ -7,11 +7,11 @@ package eho.jotangi.com.utils
 object JotangiUtilConstants {
 
     const val NONE_DATA = "--"
-//    const val DOMAIN = "https://swcoasttest.jotangi.net:10443/" //測試機
-    const val DOMAIN = "https://eho.jotangi.net:10443/" //正式機
+    const val DOMAIN = "https://swcoasttest.jotangi.net:10443/" //測試機
+//    const val DOMAIN = "https://eho.jotangi.net:10443/" //正式機
 
-//    const val DOMAIN2 = "http://swcoasttest.jotangi.net:8080/health/"
-    const val DOMAIN2 = "http://eho.jotangi.net:8080/health/"
+    const val DOMAIN2 = "http://swcoasttest.jotangi.net:8080/health/"
+//    const val DOMAIN2 = "http://eho.jotangi.net:8080/health/"
 
     const val HEADER_ACCEPT = "Accept: application/json"
 
