@@ -15,8 +15,8 @@ android {
         applicationId "eho.jotangi.com"
         minSdkVersion 25
         targetSdkVersion 31
-        versionCode 25
-        versionName "1.22"
+        versionCode 26
+        versionName "1.23"
 
         signingConfig signingConfigs.debug
 

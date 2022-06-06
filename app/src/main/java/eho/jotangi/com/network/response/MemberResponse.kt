@@ -1,6 +1,7 @@
 package eho.jotangi.com.network.response
 
 import android.os.Parcelable
+import android.util.Log
 import eho.jotangi.com.network.request.MemberRequest
 import kotlinx.android.parcel.Parcelize
 

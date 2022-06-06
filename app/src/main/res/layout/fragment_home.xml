@@ -236,57 +236,57 @@
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/clReservation"
-                                android:visibility="gone"
                                 style="@style/clHomeTabContent"
-                                app:layout_constraintTop_toBottomOf="@id/tvTabReservationTitle"
+                                android:visibility="gone"
                                 app:layout_constraintBottom_toTopOf="@id/ivTabReservationArrow"
+                                app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent">
+                                app:layout_constraintTop_toBottomOf="@id/tvTabReservationTitle">
 
                                 <TextView
                                     android:id="@+id/tvTabReservationDate"
-                                    android:text="----/--/-- --:--"
                                     style="@style/tvHomeTabContent"
-                                    app:layout_constraintVertical_chainStyle="spread"
+                                    android:text="----/--/-- --:--"
+                                    app:layout_constraintBottom_toTopOf="@id/tvTabReservationStore"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintBottom_toTopOf="@id/tvTabReservationStore"/>
+                                    app:layout_constraintVertical_chainStyle="spread" />
 
                                 <TextView
                                     android:id="@+id/tvTabReservationStore"
-                                    android:text="@string/none_data"
-                                    android:paddingEnd="16dp"
                                     style="@style/tvHomeTabContent"
+                                    android:paddingEnd="16dp"
+                                    android:text="@string/none_data"
+                                    app:layout_constraintBottom_toTopOf="@id/tvTabReservationTel"
+                                    app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintHorizontal_bias="0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/tvTabReservationDate"
-                                    app:layout_constraintBottom_toTopOf="@id/tvTabReservationTel"/>
+                                    app:layout_constraintTop_toBottomOf="@id/tvTabReservationDate" />
 
                                 <ImageView
                                     style="@style/ivHomeTabIcon16"
                                     android:src="@drawable/ic_placeholder"
+                                    app:layout_constraintBottom_toBottomOf="@id/tvTabReservationStore"
                                     app:layout_constraintEnd_toEndOf="@id/tvTabReservationStore"
-                                    app:layout_constraintTop_toTopOf="@id/tvTabReservationStore"
-                                    app:layout_constraintBottom_toBottomOf="@id/tvTabReservationStore"/>
+                                    app:layout_constraintTop_toTopOf="@id/tvTabReservationStore" />
 
                                 <TextView
                                     android:id="@+id/tvTabReservationTel"
-                                    android:text="@string/none_data"
-                                    android:paddingEnd="16dp"
                                     style="@style/tvHomeTabContent"
+                                    android:paddingEnd="16dp"
+                                    android:text="@string/none_data"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintHorizontal_bias="0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/tvTabReservationStore"
-                                    app:layout_constraintBottom_toBottomOf="parent"/>
+                                    app:layout_constraintTop_toBottomOf="@id/tvTabReservationStore" />
 
                                 <ImageView
                                     style="@style/ivHomeTabIcon16"
                                     android:src="@drawable/ic_call"
+                                    app:layout_constraintBottom_toBottomOf="@id/tvTabReservationTel"
                                     app:layout_constraintEnd_toEndOf="@id/tvTabReservationTel"
-                                    app:layout_constraintTop_toTopOf="@id/tvTabReservationTel"
-                                    app:layout_constraintBottom_toBottomOf="@id/tvTabReservationTel"/>
+                                    app:layout_constraintTop_toTopOf="@id/tvTabReservationTel" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 

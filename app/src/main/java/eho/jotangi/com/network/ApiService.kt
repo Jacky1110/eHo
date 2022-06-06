@@ -54,6 +54,7 @@ interface ApiService {
         @Body memberRequest: MemberRequest = MemberRequest()
     ): Single<MyNextBookingResponse>
 
+
     /**
      * 最新一筆測量數值 (手環資訊)
      */

@@ -28,6 +28,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.log
 
 class HomeFragment : BaseFragment() {
 
@@ -56,46 +57,46 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (isLaunch){
+        if (isLaunch) {
             findNavController().navigate(R.id.action_nav_home_to_nav_splash)
             isLaunch = false
         }
 
         setupToolbarHome()
 
-        mainViewModel.memberAppMyPointData.observe(viewLifecycleOwner, {
+        mainViewModel.memberAppMyPointData.observe(viewLifecycleOwner) {
             val point = it?.Data
 
-            if (!SharedPreferencesUtil.instances.isLogin() || point == null){
+            if (!SharedPreferencesUtil.instances.isLogin() || point == null) {
                 binding.tvRewardPoint.setText(R.string.none_data)
-            }else{
+            } else {
                 binding.tvRewardPoint.text = "$point"
             }
-        })
+        }
 
-        mainViewModel.newsText.observe(viewLifecycleOwner, {
+        mainViewModel.newsText.observe(viewLifecycleOwner) {
             it?.let { news ->
 
                 binding.tvAnnouncement.text = news
                 Log.d(TAG, "tvAnnouncement:" + news + "---")
 //4/29新增快訊小喇叭
-                if(news.trim().isEmpty()){
+                if (news.trim().isEmpty()) {
                     Log.d(TAG, "INVISIBLE: ")
                     binding.ivAnnouncement.visibility = View.INVISIBLE
-                }else {
+                } else {
                     Log.d(TAG, "VISIBLE: ")
                     binding.ivAnnouncement.visibility = View.VISIBLE
                 }
             }
-        })
+        }
 
 
-        mainViewModel.editFavMsg.observe(viewLifecycleOwner, {
+        mainViewModel.editFavMsg.observe(viewLifecycleOwner) {
             it?.let { msg ->
                 //Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                 mainViewModel.editFavMsg.value = null
             }
-        })
+        }
 
         /*
         mainViewModel.getWristBandSummaryData.observe(viewLifecycleOwner, {
@@ -115,14 +116,14 @@ class HomeFragment : BaseFragment() {
         })
         */
 
-        mainViewModel.dayTotalSteps.observe(viewLifecycleOwner,{
+        mainViewModel.dayTotalSteps.observe(viewLifecycleOwner) {
             it?.let { data ->
                 showWatchUI()
                 binding.tvTabBandSteps.text = data.toString()
             }
-        })
+        }
 
-        mainViewModel.last7HeartRateData.observe(viewLifecycleOwner,{
+        mainViewModel.last7HeartRateData.observe(viewLifecycleOwner) {
             it?.let { data ->
                 showWatchUI()
                 if (data.isNotEmpty()) {
@@ -130,29 +131,31 @@ class HomeFragment : BaseFragment() {
                     last.heartValue?.let { heartValue ->
                         binding.tvTabBandHeartRate.text = heartValue
                     }
-                }else{
+                } else {
                     hideWatchUI()
                 }
             }
-        })
+        }
 
-        mainViewModel.lastOxygenData.observe(viewLifecycleOwner,{ data ->
+        mainViewModel.lastOxygenData.observe(viewLifecycleOwner) { data ->
             data.OOValue?.let { OOValue ->
                 showWatchUI()
                 binding.tvTabBandBloodOxygen.text = OOValue
             }
-        })
+        }
 
-        mainViewModel.getEECPData.observe(viewLifecycleOwner, { data ->
+        mainViewModel.getEECPData.observe(viewLifecycleOwner) { data ->
             val SPO2 = data?.SPO2
-            val updatetime = Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(data?.treatmenttime.toString())?.value
+            val updatetime =
+                Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(data?.treatmenttime.toString())?.value
             val HR = data?.HR
 
             if (!SharedPreferencesUtil.instances.isLogin()
-                || (SPO2.isNullOrEmpty() && updatetime.isNullOrEmpty() && HR.isNullOrEmpty())){
+                || (SPO2.isNullOrEmpty() && updatetime.isNullOrEmpty() && HR.isNullOrEmpty())
+            ) {
                 binding.clExaminationNone.visibility = View.VISIBLE
                 binding.clExamination.visibility = View.GONE
-            }else{
+            } else {
                 binding.clExaminationNone.visibility = View.GONE
                 binding.clExamination.visibility = View.VISIBLE
 
@@ -168,42 +171,51 @@ class HomeFragment : BaseFragment() {
                     binding.tvTabEECPHeartbeat.text = HR
                 }
             }
-        })
+        }
 
-        mainViewModel.myNextBookingData.observe(viewLifecycleOwner, { data ->
+        mainViewModel.myNextBookingData.observe(viewLifecycleOwner) { data ->
+
             val booking_datetime = data?.booking_datetime
+            Log.d(TAG, "booking_datetime: + ${booking_datetime}")
             val store_address = data?.store_address
+            Log.d(TAG, "store_address: + ${store_address}")
             //4/28更新
             val store_name = data?.store_name
+            Log.d(TAG, "store_name: + ${store_name}")
             val store_phone = data?.store_phone
+            Log.d(TAG, "store_phone: + ${store_phone}")
+
 
             if (!SharedPreferencesUtil.instances.isLogin()
-                || (booking_datetime.isNullOrEmpty() && store_address.isNullOrEmpty() && store_phone.isNullOrEmpty())){
+                || (booking_datetime.isNullOrEmpty() && store_address.isNullOrEmpty() && store_phone.isNullOrEmpty())
+            ) {
                 binding.clReservation.visibility = View.GONE
                 binding.clReservationNone.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.clReservation.visibility = View.VISIBLE
                 binding.clReservationNone.visibility = View.GONE
 
                 booking_datetime?.let { binding.tvTabReservationDate.text = it }
-//                store_address?.let { binding.tvTabReservationStore.text = it }
-// 4/28更新顯示店名
-                store_name?.let{binding.tvTabReservationStore.text = it}
+                // 4/28更新顯示店名
+                store_name?.let { binding.tvTabReservationStore.text = it }
                 store_phone?.let { binding.tvTabReservationTel.text = it }
             }
-        })
+        }
 
-        mainViewModel.myGoBodyData.observe(viewLifecycleOwner,object:Observer<GoBodyData>{
+
+        mainViewModel.myGoBodyData.observe(viewLifecycleOwner, object : Observer<GoBodyData> {
             override fun onChanged(t: GoBodyData?) {
-                Log.d("eeedcc",t.toString())
-                val time = Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(t?.measuretime.toString())?.value
+                Log.d("eeedcc", t.toString())
+                val time =
+                    Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(t?.measuretime.toString())?.value
                 val body_age = t?.composition?.body_age?.value?.toInt().toString()
                 val oil = t?.composition?.vfi?.value?.toInt().toString()
-                if(!SharedPreferencesUtil.instances.isLogin()
-                    ||(time.isNullOrEmpty() || body_age.isNullOrEmpty() || oil.isNullOrEmpty())){
+                if (!SharedPreferencesUtil.instances.isLogin()
+                    || (time.isNullOrEmpty() || body_age.isNullOrEmpty() || oil.isNullOrEmpty())
+                ) {
                     binding.clGobody.visibility = View.GONE
                     binding.clGobodyNone.visibility = View.VISIBLE
-                }else{
+                } else {
                     binding.clGobody.visibility = View.VISIBLE
                     binding.clGobodyNone.visibility = View.GONE
                     time?.let { binding.tvTabGobodyDate.text = it }
@@ -213,28 +225,34 @@ class HomeFragment : BaseFragment() {
             }
         })
 
-        mainViewModel.myVesselData.observe(viewLifecycleOwner,{ data ->
-            val time :String? = Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(data?.measuretime.toString())?.value
-            val asi_l :String? = Regex(pattern = """\d{2}""").find(data?.brachial_asi_l.toString())?.value
-            val asi_r :String? = Regex(pattern = """\d{2}""").find(data?.brachial_asi_r.toString())?.value
-            val abi_l :String? = Regex(pattern = """\d{1}.\d{1}""").find(data?.abi_l.toString())?.value
-            val abi_r :String? = Regex(pattern = """\d{1}.\d{1}""").find(data?.abi_r.toString())?.value
+        mainViewModel.myVesselData.observe(viewLifecycleOwner) { data ->
+            val time: String? =
+                Regex(pattern = """\d{4}-\d{2}-\d{2} \d{2}:\d{2}""").find(data?.measuretime.toString())?.value
+            val asi_l: String? =
+                Regex(pattern = """\d{2}""").find(data?.brachial_asi_l.toString())?.value
+            val asi_r: String? =
+                Regex(pattern = """\d{2}""").find(data?.brachial_asi_r.toString())?.value
+            val abi_l: String? =
+                Regex(pattern = """\d{1}.\d{1}""").find(data?.abi_l.toString())?.value
+            val abi_r: String? =
+                Regex(pattern = """\d{1}.\d{1}""").find(data?.abi_r.toString())?.value
 
-            if(!SharedPreferencesUtil.instances.isLogin()
-                ||(time.isNullOrEmpty() || asi_l.isNullOrEmpty() && asi_r.isNullOrEmpty() && abi_l.isNullOrEmpty() && abi_r.isNullOrEmpty())){
+            if (!SharedPreferencesUtil.instances.isLogin()
+                || (time.isNullOrEmpty() || asi_l.isNullOrEmpty() && asi_r.isNullOrEmpty() && abi_l.isNullOrEmpty() && abi_r.isNullOrEmpty())
+            ) {
                 binding.clBloodv.visibility = View.GONE
                 binding.clBloodvNone.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.clBloodv.visibility = View.VISIBLE
                 binding.clBloodvNone.visibility = View.GONE
                 time?.let { binding.tvTabBloodvDate.text = it }
-                asi_l?.let { binding.tvTabBloodvASIL.text = asi_l}
-                asi_r?.let { binding.tvTabBloodvASIR.text = asi_r}
+                asi_l?.let { binding.tvTabBloodvASIL.text = asi_l }
+                asi_r?.let { binding.tvTabBloodvASIR.text = asi_r }
                 abi_l?.let { binding.tvTabBloodvABIL.text = abi_l }
-                abi_r?.let { binding.tvTabBloodvABIR.text = abi_r}
+                abi_r?.let { binding.tvTabBloodvABIR.text = abi_r }
             }
 
-        })
+        }
 
         binding.apply {
             cvExamination.setOnClickListener {
@@ -246,9 +264,9 @@ class HomeFragment : BaseFragment() {
             }
 
             cvHealthWristBand.setOnClickListener {
-                if(SharedPreferencesUtil.instances.getWatchMac()!=null){
+                if (SharedPreferencesUtil.instances.getWatchMac() != null) {
                     mActivity?.navigationWristBandPage()
-                }else{
+                } else {
                     mActivity?.navigationWristBandNotBindingPage()
                 }
             }
@@ -258,14 +276,14 @@ class HomeFragment : BaseFragment() {
             }
 
             cvGobody.setOnClickListener {
-                if(binding.clGobodyNone.visibility == View.VISIBLE)
+                if (binding.clGobodyNone.visibility == View.VISIBLE)
                     openWeb(JotangiUtilConstants.WebUrl.RESERVATION_INDEX)
                 else
                     openWeb(JotangiUtilConstants.WebUrl.HEALTH_GOBODY)
             }
 
             cvBloodV.setOnClickListener {
-                if(binding.clBloodvNone.visibility == View.VISIBLE)
+                if (binding.clBloodvNone.visibility == View.VISIBLE)
                     openWeb(JotangiUtilConstants.WebUrl.RESERVATION_INDEX)
                 else
                     openWeb(JotangiUtilConstants.WebUrl.HEALTH_VESSEL)
@@ -276,11 +294,17 @@ class HomeFragment : BaseFragment() {
             }
 
             tvTabReservationTel.setOnClickListener {
-                intentUrl(requireContext(), "${JotangiUtilConstants.TEL}${tvTabReservationTel.text}")
+                intentUrl(
+                    requireContext(),
+                    "${JotangiUtilConstants.TEL}${tvTabReservationTel.text}"
+                )
             }
 
             tvTabReservationStore.setOnClickListener {
-                intentUrl(requireContext(), "${JotangiUtilConstants.MAPS_SEARCH}${tvTabReservationStore.text}")
+                intentUrl(
+                    requireContext(),
+                    "${JotangiUtilConstants.MAPS_SEARCH}${tvTabReservationStore.text}"
+                )
             }
 
             tvRewardInstruction.setOnClickListener {
@@ -292,12 +316,13 @@ class HomeFragment : BaseFragment() {
         initProducts()
     }
 
-    fun showWatchUI(){
+
+    fun showWatchUI() {
         binding.tvWatchNoData.visibility = View.GONE
         binding.constraintHasWatchdata.visibility = View.VISIBLE
     }
 
-    fun hideWatchUI(){
+    fun hideWatchUI() {
         binding.constraintHasWatchdata.visibility = View.GONE
         binding.tvWatchNoData.visibility = View.VISIBLE
     }
@@ -309,14 +334,15 @@ class HomeFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        Log.d("eee","home_onresume")
+        Log.d("eee", "home_onresume")
         CoroutineScope(Dispatchers.IO).launch {
             getWristBandData()
         }
         mainViewModel.memberAppMyPoint()
+        mainViewModel.myNextBooking()
     }
 
-    private suspend fun getWristBandData(){
+    private suspend fun getWristBandData() {
         val endTime = Date()
         val calendar = Calendar.getInstance()
         calendar.setTime(endTime)
@@ -342,8 +368,8 @@ class HomeFragment : BaseFragment() {
     }
 
 
-    private fun initPromotionPager(){
-        mainViewModel.bannerList.observe(viewLifecycleOwner, {
+    private fun initPromotionPager() {
+        mainViewModel.bannerList.observe(viewLifecycleOwner) {
             it?.filterNotNull()?.let { data ->
                 bannerList.clear()
                 bannerList.addAll(data)
@@ -354,7 +380,7 @@ class HomeFragment : BaseFragment() {
                     binding.ivPromotionsNext.visibility = View.VISIBLE
                 }
             }
-        })
+        }
 
         promotionsPagerAdapter = PromotionsPagerAdapter(bannerList)
         promotionsPagerAdapter?.promotionItemClick = {
@@ -366,7 +392,10 @@ class HomeFragment : BaseFragment() {
 
         binding.vpPromotions.apply {
             adapter = promotionsPagerAdapter
-            setShowSideItems(resources.getDimension(R.dimen.pageMargin).toInt(), resources.getDimension(R.dimen.pagerOffset).toInt())
+            setShowSideItems(
+                resources.getDimension(R.dimen.pageMargin).toInt(),
+                resources.getDimension(R.dimen.pagerOffset).toInt()
+            )
 
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
@@ -380,7 +409,7 @@ class HomeFragment : BaseFragment() {
                                 binding.ivPromotionsPrevious.visibility = View.GONE
                                 binding.ivPromotionsNext.visibility = View.VISIBLE
                             }
-                            bannerList.size-1 -> {
+                            bannerList.size - 1 -> {
                                 binding.ivPromotionsPrevious.visibility = View.VISIBLE
                                 binding.ivPromotionsNext.visibility = View.GONE
                             }
@@ -409,15 +438,15 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    private fun initProducts(){
+    private fun initProducts() {
 
-        mainViewModel.productList.observe(viewLifecycleOwner, {
+        mainViewModel.productList.observe(viewLifecycleOwner) {
             it?.filterNotNull()?.let { data ->
                 productList.clear()
                 productList.addAll(data)
                 homeProductAdapter?.notifyDataSetChanged()
             }
-        })
+        }
 
         homeProductAdapter = HomeProductAdapter(productList)
         homeProductAdapter?.productItemClick = {

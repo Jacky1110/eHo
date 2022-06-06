@@ -31,7 +31,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class MainViewModel(var mainRepository: MainRepository): ViewModel() {
+class MainViewModel(var mainRepository: MainRepository) : ViewModel() {
 
     val newsText = MediatorLiveData<String>()
     val memberAppMyPointData = MediatorLiveData<MemberAppMyPointResponse>()
@@ -232,8 +232,9 @@ class MainViewModel(var mainRepository: MainRepository): ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(toggleLoading())
                 .subscribe({
-                    it.Data?.let {
+                    it.Data?.let { it ->
                         myNextBookingData.value = it
+                        Timber.e("myNextBookingData: + ${myNextBookingData.value}")
                     }
                     Timber.e("myNextBooking -> $it")
                 }, {
@@ -697,9 +698,10 @@ class MainViewModel(var mainRepository: MainRepository): ViewModel() {
                 })
         }
     }
+
     //4/26
-    fun getPicture(admin_name: String, Mode: String, picture_url: String ){
-        if(SharedPreferencesUtil.instances.isLogin() && !admin_name.isNullOrEmpty() && !Mode.isNullOrEmpty() && !picture_url.isNullOrEmpty())
+    fun getPicture(admin_name: String, Mode: String, picture_url: String) {
+        if (SharedPreferencesUtil.instances.isLogin() && !admin_name.isNullOrEmpty() && !Mode.isNullOrEmpty() && !picture_url.isNullOrEmpty())
             mainRepository.getPic(admin_name, Mode, picture_url)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -828,7 +830,7 @@ class MainViewModel(var mainRepository: MainRepository): ViewModel() {
 
     suspend fun userPic(pic: File) {
         Log.d("it name", pic.name)
-        if (SharedPreferencesUtil.instances.isLogin()){
+        if (SharedPreferencesUtil.instances.isLogin()) {
             mainRepository.userPic(pic)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -844,8 +846,8 @@ class MainViewModel(var mainRepository: MainRepository): ViewModel() {
                 }, {
                     Timber.e("getDataData_t -> $it")
                 })
-    }else {
-        Timber.d("getDataData, not login")
+        } else {
+            Timber.d("getDataData, not login")
         }
     }
 }

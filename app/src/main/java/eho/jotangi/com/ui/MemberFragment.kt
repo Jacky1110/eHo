@@ -129,15 +129,15 @@ class MemberFragment : BaseFragment() {
             tvVersion.text = BuildConfig.VERSION_NAME
         }
 
-        mainViewModel.headshotPath.observe(viewLifecycleOwner, { path ->
+        mainViewModel.headshotPath.observe(viewLifecycleOwner) { path ->
             //Glide.with(requireContext()).load(path?:R.drawable.ic_img_user).into(binding.sivPhoto)
             reloadUserHeadShot(path)
 
-        })
+        }
 
-        mainViewModel.userName.observe(viewLifecycleOwner, { name ->
+        mainViewModel.userName.observe(viewLifecycleOwner) { name ->
             binding.tvName.text = name
-        })
+        }
     }
 
     override fun onDestroyView() {
