@@ -13,4 +13,5 @@ class BookingFragment : BaseWebFragment() {
         setupToolbarHome()
         setupWeb(JotangiUtilConstants.WebUrl.RESERVATION_INDEX)
     }
+
 }

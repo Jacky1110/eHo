@@ -1,23 +1,13 @@
 package eho.jotangi.com.ui.wristband
 
-import android.content.DialogInterface
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
-import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.components.YAxis
-import com.github.mikephil.charting.data.Entry
-import com.github.mikephil.charting.data.LineData
-import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.ValueFormatter
+import eho.jotangi.com.databinding.FragmentWristbandIndexBinding
 import eho.jotangi.com.databinding.ToolbarBinding
 import eho.jotangi.com.ui.BaseFragment
-import eho.jotangi.com.databinding.FragmentWristbandIndexBinding
 import eho.jotangi.com.ui.wristband.view.HorizontalColorBar
 import eho.jotangi.com.utils.SharedPreferencesUtil
 import eho.jotangi.com.utils.smartwatch.WatchUtils

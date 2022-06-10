@@ -55,7 +55,7 @@ public class HorizontalColorBar extends View {
     private String[] label1 = {"差", "中等", "良好", "優良"};
     private String[] label2 = {"60", "75", "90"};
     private String[] label3 = {"低", "正常", "高"};
-    private String[] label4 = {"0", "15", "60", "100"};
+    private String[] label4 = {"0 ", "15", " 60", "100"};
 
     // 設定相關數值時, levelValues必須比barLabel, barColor多一個, 畫圖時邏輯才不會出錯
     private int[] levelDBP = {0, 90, 140, 160, 250};
