@@ -387,7 +387,9 @@ class HomeFragment : BaseFragment() {
 //            it.web_url?.let { url ->
 //                openWeb(url, title = it.title)
 //            }
-            openWeb(JotangiUtilConstants.WebUrl.DM_VIEWER)
+//            openWeb(JotangiUtilConstants.WebUrl.DM_VIEWER)
+            openWeb(url = "${JotangiUtilConstants.WebUrl.DM_VIEWER}?${"banner_id"}=${(it.banner_id)}")
+
         }
 
         binding.vpPromotions.apply {

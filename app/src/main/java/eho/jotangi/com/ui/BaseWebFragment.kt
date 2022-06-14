@@ -71,6 +71,7 @@ abstract class BaseWebFragment : BaseFragment() {
             with(settings){
                 javaScriptEnabled = true
                 domStorageEnabled = true
+
             }
 
             webViewClient = object : WebViewClient() {
