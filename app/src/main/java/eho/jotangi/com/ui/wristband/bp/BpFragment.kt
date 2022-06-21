@@ -105,7 +105,8 @@ class BpFragment : BaseFragment(){
                     val last = data.get(0)
                     Timber.d("$TAG, BP -> $data")
                     if (last.bloodDBP != null && last.bloodSBP != null) {
-                        binding.tvBPValue.text = String.format("%s/%s", last.bloodDBP, last.bloodSBP)
+                        binding.tvBPValue.text = String.format("%s/%s", last.bloodSBP, last.bloodDBP)
+//                        binding.tvBPValue.text = String.format("%s/%s", last.bloodDBP, last.bloodSBP)
                         binding.hcbvDBP.setDataValue(last.bloodDBP!!.toInt())
                         binding.hcbvSBP.setDataValue(last.bloodSBP!!.toInt())
                     }

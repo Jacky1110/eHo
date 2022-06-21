@@ -11,9 +11,9 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 26,
-      "versionName": "1.23",
-      "outputFile": "ehoapp_release_1.23.apk"
+      "versionCode": 27,
+      "versionName": "1.24",
+      "outputFile": "ehoapp_release_1.24.apk"
     }
   ],
   "elementType": "File"

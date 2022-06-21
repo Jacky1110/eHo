@@ -864,6 +864,13 @@
                             android:text="血氧飽和度"
                             android:textStyle="bold" />
 
+                        <eho.jotangi.com.ui.wristband.view.HorizontalColorBar
+                            android:id="@+id/hcbvOxygen"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1" />
+
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -944,12 +951,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/no_data" />
-
-                        <eho.jotangi.com.ui.wristband.view.HorizontalColorBar
-                            android:id="@+id/hcbvOxygen"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="5dp" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

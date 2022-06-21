@@ -31,7 +31,8 @@ class BpAdapter(private val mData : List<BPData>)  :
         var tvbpDate: TextView = v.findViewById(R.id.tv_bp_date)
 
         fun bind(model:BPData){
-            tvbpNum.text = String.format(Locale.getDefault(), "%s/%s", model.bloodDBP, model.bloodSBP)
+            tvbpNum.text = String.format(Locale.getDefault(), "%s/%s", model.bloodSBP, model.bloodDBP)
+//            tvbpNum.text = String.format(Locale.getDefault(), "%s/%s", model.bloodDBP, model.bloodSBP)
             tvbpDate.text = WatchUtils.instance.clipTimeFormatSecond(model.bloodStartTime)
         }
     }

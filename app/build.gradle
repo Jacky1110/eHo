@@ -74,6 +74,11 @@ android {
             outputFileName = "ehoapp_${variant.buildType.name}_${defaultConfig.versionName}.apk"
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
