@@ -77,7 +77,8 @@ abstract class BaseWebFragment : BaseFragment() {
             webViewClient = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
                     Timber.e("shouldOverrideUrlLoading: url = ${request.url}")
-                    request.url?.toString()?.let { url ->
+                    val webUrl =  request.url?.toString()?.split("#")?.first()
+                    webUrl?.let { url ->
                         when{
                             url.startsWith(JotangiUtilConstants.TEL) || url.contains(JotangiUtilConstants.MAPS) -> {
                                 intentUrl(
